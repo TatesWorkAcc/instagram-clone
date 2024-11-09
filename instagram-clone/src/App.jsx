@@ -1,6 +1,11 @@
 import LoginPage from "./LoginPage"
 import HomePage from "./HomePage"
+import MessagePage from "./MessagePage"
+
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
+
+// importing the userprovider so all components can access the username using context
+import { UserProvider } from "./UserContext"
 
 function App() {
 
@@ -16,15 +21,19 @@ function App() {
     path: '/home',
     // this adds to url that links to home page
     element: <HomePage/>
+  },
+  {
+    path: '/messages',
+    element: <MessagePage/>
   }
   ])
 
   return (
-    <>
-
+    <UserProvider>
+    
       <RouterProvider router={router}/>
 
-    </>
+    </UserProvider>
   )
 }
 

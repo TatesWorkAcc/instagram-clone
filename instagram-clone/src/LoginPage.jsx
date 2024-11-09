@@ -1,14 +1,24 @@
-import { useState, useRef } from "react"
+import { useState, useRef, createContext } from "react"
+
+import { useNavigate } from 'react-router-dom'
+import {useUser} from './UserContext'
 
 
 function LoginPage(){
+
+   
 
     const [password, setPassword] = useState('')
     const [noPass, setNoPass] = useState('none')
     const [username, setUsername] = useState('')
     const [noUsername, setNoUsername] = useState('none')
 
-    const usernameRef = useRef('')
+    const{setUsername: setUserContextUsername } = useUser()
+    // access the contexts setusername function
+   
+    const navigate = useNavigate()
+
+    
 
     function isLoggedIn(){
         if(password === ''){
@@ -21,9 +31,10 @@ function LoginPage(){
             return
         }
         if(username.length > 0 && password.length > 0){
-            usernameRef.current = username
+            setUserContextUsername(username)
+            // sets the username into the context
             console.log('logged in')
-            window.location.href = '/home'
+           navigate('/home')
         }
     }
     

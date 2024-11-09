@@ -21,7 +21,8 @@ function InfiniteScrollFeed(){
             loader={<h4>Loading...</h4>}
             >
                 {dataSource.map((item, index)=>{
-                    return <Post></Post>
+                    return <Post key={index}></Post>
+                    // the key makes sure each one is unique
                 })}
             </InfiniteScroll>
         </div>

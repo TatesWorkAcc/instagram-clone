@@ -10,6 +10,7 @@ function LoginPage(){
 
     const [password, setPassword] = useState('')
     const [noPass, setNoPass] = useState('none')
+    const [not8, setNot8] = useState('none')
     const [username, setUsername] = useState('')
     const [noUsername, setNoUsername] = useState('none')
 
@@ -28,6 +29,10 @@ function LoginPage(){
         
         if(username === ''){
             setNoUsername('block')
+            return
+        }
+        if(password.length < 8){
+            setNot8('block')
             return
         }
         if(username.length > 0 && password.length > 0){
@@ -58,6 +63,7 @@ function LoginPage(){
                 <button onClick={isLoggedIn} type="submit" className="login-button">Log in</button>
                 <h1 className="no-username" style={{display: noUsername}}>Missing username</h1>
                 <h1 className="no-pass" style={{display: noPass}}>Please enter a password</h1>
+                <h1 className="not-8" style={{display: not8}}>Password needs 8 characters</h1>
             </div>
         </div>
     )

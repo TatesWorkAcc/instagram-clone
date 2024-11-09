@@ -23,9 +23,6 @@ function Post(){
                 <button className="follow-button">Follow</button>
             </div>
             <button onClick={handleLike} style={{backgroundColor: like}} className="like"></button>
-            <button className="comment"></button>
-            <button className="share"></button>
-            <button className="bookmark"></button>
         </div>
     )
 }

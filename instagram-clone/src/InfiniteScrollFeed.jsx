@@ -4,8 +4,10 @@ import Post from './Post';
 
 const style = {
   border: '1px solid green',
-  height: '600px', // Set a fixed height to ensure scrolling
-  overflowY: 'auto', // Enable vertical scrolling
+  height: '600px', 
+  // Set a fixed height to ensure scrolling
+  overflowY: 'auto', 
+  // Enable vertical scrolling
 };
 
 function InfiniteScrollFeed() {
@@ -14,7 +16,8 @@ function InfiniteScrollFeed() {
 
   // Function to fetch more data
   const fetchMoreData = () => {
-    console.log('Fetching data...'); // This should log when scrolling to the bottom
+    console.log('Fetching data...'); 
+    // This should log when scrolling to the bottom
 
     setTimeout(() => {
       setDataSource((prevData) => {
@@ -22,7 +25,8 @@ function InfiniteScrollFeed() {
 
         // Check if we should stop fetching more data
         if (updatedData.length >= 1000) {
-          setHasMore(false); // Set to false to stop loading more
+          setHasMore(false);
+           // Set to false to stop loading more
         }
 
         return updatedData;
@@ -41,7 +45,7 @@ function InfiniteScrollFeed() {
         next={fetchMoreData}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
-        scrollableTarget="scroll-container" // Make sure this matches the id
+        scrollableTarget="scroll-container" 
       >
         {dataSource.map((_, index) => (
           <Post key={index} />

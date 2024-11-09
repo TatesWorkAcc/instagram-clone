@@ -1,6 +1,6 @@
 import { useUser } from './UserContext'
 import { useNavigate } from 'react-router-dom'
-// imports userame
+// imports username
 
 function MessagePage(){
 

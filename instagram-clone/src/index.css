@@ -111,6 +111,8 @@ html, body{
   background-color: gray;
   color: white;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .infinite-scroll{
   flex: 1;
@@ -120,4 +122,15 @@ html, body{
   width: 100%;
   height: calc(100% - 190px);
   /* fits under and over the bars */
+}
+
+
+/* posts */
+.like{
+  margin-top: auto;
+  position: relative;
+  margin-bottom: 3%;
+  width: 30px;
+  height: 30px;
+  margin-left: 3%;
 }

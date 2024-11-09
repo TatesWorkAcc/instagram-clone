@@ -1,5 +1,4 @@
-import { useState } from "react"
-
+import { useState, useRef } from "react"
 
 
 function LoginPage(){
@@ -9,16 +8,20 @@ function LoginPage(){
     const [username, setUsername] = useState('')
     const [noUsername, setNoUsername] = useState('none')
 
+    const usernameRef = useRef('')
+
     function isLoggedIn(){
         if(password === ''){
             setNoPass('block')
+            return
         }
         
         if(username === ''){
             setNoUsername('block')
-        
+            return
         }
         if(username.length > 0 && password.length > 0){
+            usernameRef.current = username
             console.log('logged in')
             window.location.href = '/home'
         }
